@@ -32,6 +32,7 @@ function update_user_info() {
 			$("#info #name").text(user.name);
 			$("#info #muta-amount").text(user.n_tokens);
 			$("#info #tokens").text(user.n_tokens);
+			$("#info #stake-amount").text(user.d_tokens);
 			$("#info #muta-address").text(user.muta_address);
 			$("#info #ckb-address").text(user.ckb_address);
 		} else if(user.error == 1) {
