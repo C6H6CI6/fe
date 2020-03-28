@@ -243,6 +243,7 @@ $("#confirm-cash-in-button").click(event => {
 		amount: amount,
 		secret_key: secret_key
 	}, function(data) {
+		location.reload();
 		console.log(data);
 	});
 })
@@ -256,6 +257,7 @@ $("#confirm-cash-out-button").click(event => {
 		amount: amount,
 		secret_key: secret_key
 	}, function(data) {
+		location.reload();
 		console.log(data);
 	});
 })
