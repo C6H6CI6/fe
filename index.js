@@ -12,7 +12,6 @@ const muta = new Muta({
 	endpoint: "http://47.56.237.128:4321/graphql"
 });
 const client = muta.client();
-const secret_key = "0x1000000000000000000000000000000000000000000000000000000000000000";
 
 $("#nav-login-button").click(function (event) {
 	event.preventDefault();
@@ -31,6 +30,10 @@ function update_user_info() {
 			$("#tokens").text(user.n_tokens);
 			$("#user-id").text(user.name);
 			$("#info #name").text(user.name);
+			$("#info #muta-amount").text(user.n_tokens);
+			$("#info #tokens").text(user.n_tokens);
+			$("#info #muta-address").text(user.muta_address);
+			$("#info #ckb-address").text(user.ckb_address);
 		} else if(user.error == 1) {
 			$("#nav-user-info").hide();
 			$("#nav-login-button").show();
@@ -115,6 +118,7 @@ $(".login-button").click(function (event) {
 		console.log(challenge);
 		var account = Account.fromPrivateKey($(".secret-key").val());
 		console.log(account);
+		console.log(account.address.toString());
 		var tx = account.signTransaction({
 			chainId: '0x0000000000000000000000000000000000000000000000000000000000000000',
 			cyclesLimit: '0x00',
@@ -126,11 +130,15 @@ $(".login-button").click(function (event) {
 			timeout: '0x9999'
 		});
 		console.log(tx);
-		$.post("login", {user_id: $(".user-id").val(), signature: tx.signature}, function (data) {
-			console.log(data);
-			$("#login-panel").hide();
-			update_user_info();
-		});
+		$.post("login", {
+				user_id: $(".user-id").val(),
+				signature: tx.signature,
+				address: account.address.toString()},
+			function (data) {
+				console.log(data);
+				$("#login-panel").hide();
+				update_user_info();
+			});
 	})
 })
 
@@ -150,6 +158,7 @@ $("#submit-post").click(function(event) {
 		alert("Content cannot be empty!");
 		return;
 	}
+	var secret_key = $("#confirm-submit-post-secret-key").val();
 	var account = Account.fromPrivateKey(secret_key);
 	var tx = $.get("create-transaction", {
 		method: 'create_post',
@@ -165,6 +174,7 @@ $("#submit-post").click(function(event) {
 				title: title,
 				content: content,
 				transaction: JSON.stringify(tx),
+				address: account.address.toString(),
 				image: "#",
 				date: new Date().toISOString().slice(0, 10)
 			};
@@ -183,3 +193,47 @@ $("#submit-post").click(function(event) {
 
 $("#confirm-cash-in").hide();
 $("#confirm-cash-out").hide();
+
+$("#cash-in-udt").keyup(event => {
+	$("#cash-in-muli").val($("#cash-in-udt").val());
+});
+
+$("#cash-out-muli").keyup(event => {
+	$("#cash-out-udt").val($("#cash-out-muli").val());
+});
+
+$("#cash-in-muli").keyup(event => {
+	$("#cash-in-udt").val($("#cash-in-muli").val());
+});
+
+$("#cash-out-udt").keyup(event => {
+	$("#cash-out-muli").val($("#cash-out-udt").val());
+});
+
+$("#cash-in-button").click((event) => {
+	event.preventDefault();
+	$("#confirm-cash-in").toggle();
+	$("#confirm-cash-in-amount").text("UDT " + (parseFloat($("#cash-in-udt").val())));
+	$("#confirm-cash-in-value").text("UDT " + (parseFloat($("#cash-in-udt").val())));
+});
+
+$("#cash-out-button").click((event) => {
+	event.preventDefault();
+	$("#confirm-cash-out").toggle();
+	$("#confirm-cash-out-amount").text("UDT " + (parseFloat($("#cash-out-muli").val())));
+	$("#confirm-cash-out-value").text("UDT " + (parseFloat($("#cash-out-muli").val())));
+});
+
+$("#confirm-cash-in-button").click(event => {
+	event.preventDefault();
+	var amount = parseFloat($("#cash-in-udt").val());
+	var secret_key = $("#confirm-cash-in-secret-key").val();
+	console.log("Amount: " + amount + " Secret Key: " + secret_key);
+})
+
+$("#confirm-cash-out-button").click(event => {
+	event.preventDefault();
+	var amount = parseFloat($("#cash-out-muli").val());
+	var secret_key = $("#confirm-cash-out-secret-key").val();
+	console.log("Amount: " + amount + " Secret Key: " + secret_key);
+})

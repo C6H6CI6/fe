@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-md fixed-top">
       <a class="navbar-brand" href="#"><img src="assets/dinasour.svg"></img></a>
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a id="home_page" class="nav-link" href="index.html">首页</a></li>
+        <li class="nav-item"><a id="home_page" class="nav-link" href="index.html">MULIMULI</a></li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item"></li>
@@ -54,29 +54,29 @@
             <img id="comment_image" src="assets/comment.svg" />
             <span id="comments" src="#" >0</span>
             <img id="token_image" src="assets/m.svg" />
-            <span id="tokens" src="#" >0</span>
+            <span id="tokens">0</span>
           </div>
           <div id="addresses-state" class="row">
             <div id="addresses-amounts" class="col-5">
               <div class="row addresses-state-item">
                 <div class="col-4 addresses-state-label">muta 地址</div>
-                <div id="muta-address" class="col-8 addresses-state-value">muta1234567890</div>
+                <div id="muta-address" class="col-8 addresses-state-value">0</div>
               </div>
               <div class="row addresses-state-item">
                 <div class="col-4 addresses-state-label">muli 余额</div>
-                <div id="muta-amount" class="col-8 addresses-state-value">ckb1234567890</div>
+                <div id="muta-amount" class="col-8 addresses-state-value">0</div>
               </div>
               <div class="row addresses-state-item">
-                <div class="col-4 addresses-state-label">CKB 地址</div>
-                <div id="ckb-address" class="col-8 addresses-state-value">ckb1234567890</div>
+                <div class="col-4 addresses-state-label">UDT 地址</div>
+                <div id="ckb-address" class="col-8 addresses-state-value">0</div>
               </div>
               <div class="row addresses-state-item">
-                <div class="col-4 addresses-state-label">CKB 余额</div>
-                <div id="ckb-amount" class="col-8 addresses-state-value">ckb1234567890</div>
+                <div class="col-4 addresses-state-label">UDT 余额</div>
+                <div id="ckb-amount" class="col-8 addresses-state-value">0</div>
               </div>
               <div class="row addresses-state-item">
                 <div class="col-4 addresses-state-label">抵押金额</div>
-                <div id="stake-amount" class="col-8 addresses-state-value">ckb1234567890</div>
+                <div id="stake-amount" class="col-8 addresses-state-value">0</div>
               </div>
             </div>
             <div id="pool-state" class="col-7">
@@ -89,7 +89,7 @@
                 <div class="row">
                   <div class="col-4"><span class="pool-sate-col-head">ID</span></div>
                   <div class="col-4"><span class="pool-sate-col-head">地址</span></div>
-                  <div class="col-4"><span class="pool-sate-col-head">CKB</span></div>
+                  <div class="col-4"><span class="pool-sate-col-head">UDT</span></div>
                 </div>
                 <div class="row pool-state-table">
                   <div class="col-4"><span class="pool-sate-col"></span></div>
@@ -116,8 +116,8 @@
                   <div class="cash-in-out-box-row">充值 muli</div>
                   <div class="row cash-in-out-box-row">
                     <div class="col-5 cash-in-out-input">
-                      <div class="cash-in-out-input-label">ckb 数额</div>
-                      <input id="cash-in-ckb" type="text" class="cash-in-out-input-box" />
+                      <div class="cash-in-out-input-label">udt 数额</div>
+                      <input id="cash-in-udt" type="text" class="cash-in-out-input-box" />
                     </div>
                     <div class="col-2 arrow">=&gt;</div>
                     <div class="col-5 cash-in-out-input">
@@ -130,7 +130,7 @@
               </div>
               <div class="col-6 cash-in-out-col">
                 <div class="cash-in-out-box container">
-                  <div class="cash-in-out-box-row">提现 CKB</div>
+                  <div class="cash-in-out-box-row">提现 UDT</div>
                   <div class="row cash-in-out-box-row">
                     <div class="col-5 cash-in-out-input">
                       <div class="cash-in-out-input-label">muli 数额</div>
@@ -138,8 +138,8 @@
                     </div>
                     <div class="col-2 arrow">=&gt;</div>
                     <div class="col-5 cash-in-out-input">
-                      <div class="cash-in-out-input-label">ckb 数额</div>
-                      <input id="cash-out-ckb" type="text" class="cash-in-out-input-box" />
+                      <div class="cash-in-out-input-label">udt 数额</div>
+                      <input id="cash-out-udt" type="text" class="cash-in-out-input-box" />
                     </div>
                   </div>
                   <div class="cash-in-out-box-row"><a id="cash-out-button" class="cash-in-out-button">提现</a></div>
@@ -159,7 +159,7 @@
 
     <div id="confirm-cash-in" class="confirm-cash-in-out">
       <div class="confirm-cash-in-out-row confirm-transaction">确认交易</div>
-      <div id="confirm-cash-in-amount" class="confirm-cash-in-out-row confirm-amount">CKB</div>
+      <div id="confirm-cash-in-amount" class="confirm-cash-in-out-row confirm-amount">UDT</div>
       <div class="confirm-cash-in-out-row confirm-cash-in-out-amount">
         <div class="confirm-cash-in-out-label">充值数额</div>
         <div id="confirm-cash-in-value" class="confirm-cash-in-out-value">0</div>
@@ -168,14 +168,26 @@
         <div class="confirm-cash-in-out-label">链上手续费</div>
         <div id="confirm-cash-in-fee" class="confirm-cash-in-out-value">0</div>
       </div>
-      <div class="confirm-cash-in-out-row input-secret-key-label">请输入您的 CKB 私钥</div>
+      <div class="confirm-cash-in-out-row input-secret-key-label">请输入您的 UDT 私钥</div>
       <textarea id="confirm-cash-in-secret-key" class="confirm-cash-in-out-row input-secret-key-textbox" rows="10"></textarea>
       <div class="confirm-cash-in-out-row"><a id="confirm-cash-in-button" class="confirm-cash-in-out-button" href="#">充值</a></div>
     </div>
 
+    <div id="login-panel">
+      <div>
+        <img class="logo" src="assets/dinasour.svg" />
+        <a id="cancel-button"><i class="material-icons">cancel</i></a>
+      </div>
+      <form class="login-info">
+        <input class="user-id" type="text" name="user_id" placeholder="用户ID" /><br/>
+        <input class="secret-key" type="password" name="secrete_key" placeholder="Muta 私钥" /><br/>
+        <input class="login-button" type="submit" name="login" value="登录" />
+      </form>
+    </div>
+
     <div id="confirm-cash-out" class="confirm-cash-in-out">
       <div class="confirm-cash-in-out-row confirm-transaction">确认交易</div>
-      <div id="confirm-cash-out-amount" class="confirm-cash-in-out-row confirm-amount">CKB</div>
+      <div id="confirm-cash-out-amount" class="confirm-cash-in-out-row confirm-amount">UDT</div>
       <div class="confirm-cash-in-out-row confirm-cash-in-out-amount">
         <div class="confirm-cash-in-out-label">提现数额</div>
         <div id="confirm-cash-out-value" class="confirm-cash-in-out-value">0</div>
@@ -184,7 +196,7 @@
         <div class="confirm-cash-in-out-label">链上手续费</div>
         <div id="confirm-cash-out-fee" class="confirm-cash-in-out-value">0</div>
       </div>
-      <div class="confirm-cash-in-out-row input-secret-key-label">请输入您的 CKB 私钥</div>
+      <div class="confirm-cash-in-out-row input-secret-key-label">请输入您的 UDT 私钥</div>
       <textarea id="confirm-cash-out-secret-key" class="confirm-cash-in-out-row input-secret-key-textbox" rows="10"></textarea>
       <div class="confirm-cash-in-out-row"><a id="confirm-cash-out-button" class="confirm-cash-in-out-button" href="#">提现</a></div>
     </div>
