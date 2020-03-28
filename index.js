@@ -62,12 +62,16 @@ function update_new_posts() {
 					console.log("Sending " + amount + " Muli to " + post.author);
 					console.log("Secrete key is " + secret_key);
 						var account = Account.fromPrivateKey(secret_key);
+						var amount_hex = amount.toString(16);
+						if(amount_hex.length % 2 == 1) {
+							amount_hex = "0" + amount_hex;
+						}
 						var tx = $.get("create-transaction", {
 							method: 'star',
-							payload: {
+							payload: JSON.stringify({
 								post_id: post.id,
 								balance: amount
-							}
+							})
 						}, (data) => {
 							console.log(data);
 							if(data.error == 0) {
@@ -86,7 +90,7 @@ function update_new_posts() {
 									if(data.error != 0) {
 										console.log(data.msg);
 									} else {
-										window.location.reload()
+										window.location.reload();
 									}
 								});
 							}
