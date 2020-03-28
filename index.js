@@ -213,15 +213,25 @@ $("#cash-out-udt").keyup(event => {
 $("#cash-in-button").click((event) => {
 	event.preventDefault();
 	$("#confirm-cash-in").toggle();
-	$("#confirm-cash-in-amount").text("UDT " + (parseFloat($("#cash-in-udt").val())));
-	$("#confirm-cash-in-value").text("UDT " + (parseFloat($("#cash-in-udt").val())));
+	$("#confirm-cash-in-amount").text("UDT -" + (parseFloat($("#cash-in-udt").val())));
 });
 
 $("#cash-out-button").click((event) => {
 	event.preventDefault();
 	$("#confirm-cash-out").toggle();
-	$("#confirm-cash-out-amount").text("UDT " + (parseFloat($("#cash-out-muli").val())));
-	$("#confirm-cash-out-value").text("UDT " + (parseFloat($("#cash-out-muli").val())));
+	$("#confirm-cash-out-amount").text("UDT +" + (parseFloat($("#cash-out-muli").val())));
+});
+
+$("#stake-in-button").click((event) => {
+	event.preventDefault();
+	$("#confirm-stake-in").toggle();
+	$("#confirm-stake-in-amount").text("UDT -" + (parseFloat($("#stake-in-udt").val())));
+});
+
+$("#stake-out-button").click((event) => {
+	event.preventDefault();
+	$("#confirm-stake-out").toggle();
+	$("#confirm-stake-out-amount").text("UDT +" + (parseFloat($("#stake-out-udt").val())));
 });
 
 $("#confirm-cash-in-button").click(event => {
@@ -243,6 +253,32 @@ $("#confirm-cash-out-button").click(event => {
 	var secret_key = $("#confirm-cash-out-secret-key").val();
 	console.log("Amount: " + amount + " Secret Key: " + secret_key);
 	$.post("cash-out", {
+		amount: amount,
+		secret_key: secret_key
+	}, function(data) {
+		console.log(data);
+	});
+})
+
+$("#confirm-stake-in-button").click(event => {
+	event.preventDefault();
+	var amount = parseFloat($("#stake-in-udt").val());
+	var secret_key = $("#confirm-stake-in-secret-key").val();
+	console.log("Amount: " + amount + " Secret Key: " + secret_key);
+	$.post("stake-in", {
+		amount: amount,
+		secret_key: secret_key
+	}, function(data) {
+		console.log(data);
+	});
+})
+
+$("#confirm-stake-out-button").click(event => {
+	event.preventDefault();
+	var amount = parseFloat($("#stake-out-muli").val());
+	var secret_key = $("#confirm-stake-out-secret-key").val();
+	console.log("Amount: " + amount + " Secret Key: " + secret_key);
+	$.post("stake-out", {
 		amount: amount,
 		secret_key: secret_key
 	}, function(data) {

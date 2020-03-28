@@ -493,20 +493,58 @@ body.editor-body {
 	font-family: PingFang SC;
 }
 
-.confirm-cash-in-out {
-	position: absolute;
+.stake-in-out-col {
+	padding: 16px 32px;
+}
+
+.stake-in-out-box {
+	line-height: 20px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: rgba(255, 255, 255, 0.52);
+	font-size: 14px;
+	text-align: center;
+	font-family: Roboto;
+	border: 1px solid rgba(187, 187, 187, 1);
+	padding: 10px;
 	display: flex;
-	z-index: 1;
 	flex-direction: column;
 	align-items: center;
-	left: 30%;
-	width: 40%;
-	top: 431px;
-	border-radius: 19px;
+}
+
+.stake-in-out-box-row {
+	margin-bottom: 16px;
+}
+
+.stake-in-out-input {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	text-align: center;
-	border: 1px solid rgba(187, 187, 187, 1);
-	padding: 16px 32px;
-	background-color: #FFFFFFFF;
+	padding: 10px;
+}
+
+.stake-in-out-input-label {
+	color: rgba(176, 122, 122, 1);
+	font-size: 14px;
+	font-family: SourceHanSansSC-regular;
+}
+
+.stake-in-out-input-box {
+	color: rgba(176, 122, 122, 1);
+	font-size: 14px;
+	font-family: SourceHanSansSC-regular;
+	border-radius: 3px 3px 3px 3px;
+	background-color: rgba(151, 77, 77, 0);
+	border: 2px solid rgba(176, 122, 122, 1);
+}
+
+.stake-in-out-button {
+	background-color: rgba(235, 122, 103, 1);
+	color: rgba(255, 255, 255, 1);
+	padding: 5px 10px;
+	font-size: 14px;
+	text-align: center;
+	font-family: PingFang SC;
 }
 
 .confirm-cash-in-out-row {
@@ -560,6 +598,69 @@ body.editor-body {
 	font-family: PingFangSC-regular;
 }
 
+.confirm-cash-in-out-button {
+	padding: 5px 20px;
+	line-height: 20px;
+	border-radius: 15px;
+	background-color: rgba(176, 122, 122, 1);
+	text-align: center;
+	border: 1px solid rgba(187, 187, 187, 1);
+	color: #FFFFFFFF;
+}
+
+.confirm-stake-in-out-row {
+	margin-bottom: 10px;
+}
+
+.confirm-stake-in-out .confirm-transaction {
+	margin-bottom: 32px;
+	line-height: 25px;
+	color: rgba(16, 16, 16, 1);
+	font-size: 28px;
+	text-align: center;
+	font-family: PingFangSC-regular;
+}
+
+.confirm-stake-in-out-amount {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.confirm-stake-in-out-fee {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.confirm-stake-in-out-label {
+	flex-grow: 1;
+	text-align: left;
+	line-height: 22px;
+	color: rgba(120, 121, 121, 1);
+	font-size: 20px;
+	font-family: PingFangSC-regular;
+}
+
+.confirm-stake-in-out-value {
+	flex-grow: 1;
+	text-align: right;
+	line-height: 22px;
+	color: rgba(0, 0, 0, 1);
+	font-size: 20px;
+	font-family: PingFangSC-regular;
+}
+
+.confirm-stake-in-out-button {
+	padding: 5px 20px;
+	line-height: 20px;
+	border-radius: 15px;
+	background-color: rgba(176, 122, 122, 1);
+	text-align: center;
+	border: 1px solid rgba(187, 187, 187, 1);
+	color: #FFFFFFFF;
+}
+
 .input-secret-key-label {
 	color: rgba(16, 16, 16, 1);
 	font-size: 20px;
@@ -577,14 +678,4 @@ body.editor-body {
 	text-align: left;
 	font-family: PingFang SC;
 	border: 1px solid rgba(187, 187, 187, 1);
-}
-
-.confirm-cash-in-out-button {
-	padding: 5px 20px;
-	line-height: 20px;
-	border-radius: 15px;
-	background-color: rgba(176, 122, 122, 1);
-	text-align: center;
-	border: 1px solid rgba(187, 187, 187, 1);
-	color: #FFFFFFFF;
 }

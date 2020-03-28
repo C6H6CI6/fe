@@ -42,7 +42,7 @@
 
     <main role="main" class="container" style="margin-top:150px;">
       <ul class="nav nav-tabs">
-        <li class="nav-item nav-link active"><a href="#info" data-toggle="tab">个人信息管理</a></li>
+        <li class="nav-item nav-link" class="active"><a href="#info" data-toggle="tab">个人信息管理</a></li>
         <li class="nav-item nav-link"><a href="#posts" data-toggle="tab">个人稿件管理</a></li>
         <li class="nav-item nav-link"><a href="#settings" data-toggle="tab">设置</a></li>
       </ul>
@@ -125,7 +125,7 @@
                       <input id="cash-in-muli" type="text" class="cash-in-out-input-box" />
                     </div>
                   </div>
-                  <div class="cash-in-out-box-row"><a id="cash-in-button" class="cash-in-out-button">充值</a></div>
+                  <div class="cash-in-out-box-row"><button id="cash-in-button" class="cash-in-out-button" data-toggle="modal" data-target="#confirm-cash-in">充值</button></div>
                 </div>
               </div>
               <div class="col-6 cash-in-out-col">
@@ -142,35 +142,110 @@
                       <input id="cash-out-udt" type="text" class="cash-in-out-input-box" />
                     </div>
                   </div>
-                  <div class="cash-in-out-box-row"><a id="cash-out-button" class="cash-in-out-button">提现</a></div>
+                  <div class="cash-in-out-box-row"><button id="cash-out-button" class="cash-in-out-button" data-toggle="modal" data-target="#confirm-cash-out">提现</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="stake-in-out" class="container">
+            <div class="row">
+              <div><h3>申请成为管理员</h3></div>
+            </div>
+            <div class="row">
+              <div class="col-6 stake-in-out-col">
+                <div class="stake-in-out-box container">
+                  <div class="stake-in-out-box-row">抵押 UDT</div>
+                  <div class="stake-in-out-box-row"><input id="stake-in-udt" type="text" class="stake-in-out-input-box" /></div>
+                  <div class="stake-in-out-box-row"><button id="stake-in-button" class="stake-in-out-button" data-toggle="modal" data-target="#confirm-stake-in">抵押</button></div>
+                </div>
+              </div>
+              <div class="col-6 stake-in-out-col">
+                <div class="stake-in-out-box container">
+                  <div class="stake-in-out-box-row">退押 UDT</div>
+                  <div class="stake-in-out-box-row"><input id="stake-out-udt" type="text" class="stake-in-out-input-box" /></div>
+                  <div class="stake-in-out-box-row"><button id="stake-out-button" class="stake-in-out-button" data-toggle="modal" data-target="#confirm-stake-out">退押</button></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="tab-pane" id="posts" role="tab-panel">
-          <h1>I'm in second tab</h1>
         </div>
         <div class="tab-pane" id="settings" role="tab-panel">
-          <h1>I'm in third tab</h1>
         </div>
       </div>
     </main><!-- /.container -->
 
-    <div id="confirm-cash-in" class="confirm-cash-in-out">
-      <div class="confirm-cash-in-out-row confirm-transaction">确认交易</div>
-      <div id="confirm-cash-in-amount" class="confirm-cash-in-out-row confirm-amount">UDT</div>
-      <div class="confirm-cash-in-out-row confirm-cash-in-out-amount">
-        <div class="confirm-cash-in-out-label">充值数额</div>
-        <div id="confirm-cash-in-value" class="confirm-cash-in-out-value">0</div>
+    <div id="confirm-cash-in" class="modal fade confirm-cash-in-out" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog confirm-cash-in-out-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="confirm-cash-in-out-row confirm-transaction">确认交易</div>
+          </div>
+          <div class="modal-body">
+            <div id="confirm-cash-in-amount" class="confirm-cash-in-out-row confirm-amount">UDT</div>
+            <div class="confirm-cash-in-out-row input-secret-key-label">请输入您的 UDT 私钥</div>
+            <textarea id="confirm-cash-in-secret-key" class="confirm-cash-in-out-row input-secret-key-textbox" rows="10"></textarea>
+          </div>
+          <div class="modal-footer">
+            <div class="confirm-cash-in-out-row"><a id="confirm-cash-in-button" class="confirm-cash-in-out-button" href="#">充值</a></div>
+          </div>
+        </div>
       </div>
-      <div class="confirm-cash-in-out-row confirm-cash-in-out-fee">
-        <div class="confirm-cash-in-out-label">链上手续费</div>
-        <div id="confirm-cash-in-fee" class="confirm-cash-in-out-value">0</div>
+    </div>
+
+    <div id="confirm-cash-out" class="modal fade confirm-cash-in-out" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog confirm-cash-in-out-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="confirm-cash-in-out-row confirm-transaction">确认交易</div>
+          </div>
+          <div class="modal-body">
+            <div id="confirm-cash-out-amount" class="confirm-cash-in-out-row confirm-amount">UDT</div>
+            <div class="confirm-cash-in-out-row input-secret-key-label">请输入您的 UDT 私钥</div>
+            <textarea id="confirm-cash-out-secret-key" class="confirm-cash-in-out-row input-secret-key-textbox" rows="10"></textarea>
+          </div>
+          <div class="modal-footer">
+            <div class="confirm-cash-in-out-row"><a id="confirm-cash-out-button" class="confirm-cash-in-out-button" href="#">提现</a></div>
+          </div>
+        </div>
       </div>
-      <div class="confirm-cash-in-out-row input-secret-key-label">请输入您的 UDT 私钥</div>
-      <textarea id="confirm-cash-in-secret-key" class="confirm-cash-in-out-row input-secret-key-textbox" rows="10"></textarea>
-      <div class="confirm-cash-in-out-row"><a id="confirm-cash-in-button" class="confirm-cash-in-out-button" href="#">充值</a></div>
+    </div>
+
+    <div id="confirm-stake-in" class="modal fade confirm-stake-in-out" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog confirm-stake-in-out-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="confirm-stake-in-out-row confirm-transaction">确认交易</div>
+          </div>
+          <div class="modal-body">
+            <div id="confirm-stake-in-amount" class="confirm-stake-in-out-row confirm-amount">UDT</div>
+            <div class="confirm-stake-in-out-row input-secret-key-label">请输入您的 UDT 私钥</div>
+            <textarea id="confirm-stake-in-secret-key" class="confirm-stake-in-out-row input-secret-key-textbox" rows="10"></textarea>
+          </div>
+          <div class="modal-footer">
+            <div class="confirm-stake-in-out-row"><a id="confirm-stake-in-button" class="confirm-stake-in-out-button" href="#">抵押</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="confirm-stake-out" class="modal fade confirm-stake-in-out" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog confirm-stake-in-out-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="confirm-stake-in-out-row confirm-transaction">确认交易</div>
+          </div>
+          <div class="modal-body">
+            <div id="confirm-stake-out-amount" class="confirm-stake-in-out-row confirm-amount">UDT</div>
+            <div class="confirm-stake-in-out-row input-secret-key-label">请输入您的 UDT 私钥</div>
+            <textarea id="confirm-stake-out-secret-key" class="confirm-stake-in-out-row input-secret-key-textbox" rows="10"></textarea>
+          </div>
+          <div class="modal-footer">
+            <div class="confirm-stake-in-out-row"><a id="confirm-stake-out-button" class="confirm-stake-in-out-button" href="#">退押</a></div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="login-panel">
@@ -185,23 +260,7 @@
       </form>
     </div>
 
-    <div id="confirm-cash-out" class="confirm-cash-in-out">
-      <div class="confirm-cash-in-out-row confirm-transaction">确认交易</div>
-      <div id="confirm-cash-out-amount" class="confirm-cash-in-out-row confirm-amount">UDT</div>
-      <div class="confirm-cash-in-out-row confirm-cash-in-out-amount">
-        <div class="confirm-cash-in-out-label">提现数额</div>
-        <div id="confirm-cash-out-value" class="confirm-cash-in-out-value">0</div>
-      </div>
-      <div class="confirm-cash-in-out-row confirm-cash-in-out-fee">
-        <div class="confirm-cash-in-out-label">链上手续费</div>
-        <div id="confirm-cash-out-fee" class="confirm-cash-in-out-value">0</div>
-      </div>
-      <div class="confirm-cash-in-out-row input-secret-key-label">请输入您的 UDT 私钥</div>
-      <textarea id="confirm-cash-out-secret-key" class="confirm-cash-in-out-row input-secret-key-textbox" rows="10"></textarea>
-      <div class="confirm-cash-in-out-row"><a id="confirm-cash-out-button" class="confirm-cash-in-out-button" href="#">提现</a></div>
-    </div>
-
-    <!--_script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="/index.js"></script>
