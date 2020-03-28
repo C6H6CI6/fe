@@ -271,6 +271,7 @@ $("#confirm-stake-in-button").click(event => {
 		amount: amount,
 		secret_key: secret_key
 	}, function(data) {
+		location.reload();
 		console.log(data);
 	});
 })
@@ -284,6 +285,7 @@ $("#confirm-stake-out-button").click(event => {
 		amount: amount,
 		secret_key: secret_key
 	}, function(data) {
+			location.reload();
 		console.log(data);
 	});
 })
