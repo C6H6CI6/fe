@@ -277,7 +277,7 @@ $("#confirm-stake-in-button").click(event => {
 
 $("#confirm-stake-out-button").click(event => {
 	event.preventDefault();
-	var amount = parseFloat($("#stake-out-muli").val());
+	var amount = parseFloat($("#stake-out-udt").val());
 	var secret_key = $("#confirm-stake-out-secret-key").val();
 	console.log("Amount: " + amount + " Secret Key: " + secret_key);
 	$.post("stake-out", {
