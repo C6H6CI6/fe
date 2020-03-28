@@ -229,6 +229,12 @@ $("#confirm-cash-in-button").click(event => {
 	var amount = parseFloat($("#cash-in-udt").val());
 	var secret_key = $("#confirm-cash-in-secret-key").val();
 	console.log("Amount: " + amount + " Secret Key: " + secret_key);
+	$.post("cash-in", {
+		amount: amount,
+		secret_key: secret_key
+	}, function(data) {
+		console.log(data);
+	});
 })
 
 $("#confirm-cash-out-button").click(event => {
@@ -236,4 +242,10 @@ $("#confirm-cash-out-button").click(event => {
 	var amount = parseFloat($("#cash-out-muli").val());
 	var secret_key = $("#confirm-cash-out-secret-key").val();
 	console.log("Amount: " + amount + " Secret Key: " + secret_key);
+	$.post("cash-out", {
+		amount: amount,
+		secret_key: secret_key
+	}, function(data) {
+		console.log(data);
+	});
 })
