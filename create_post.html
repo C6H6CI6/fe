@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>C6H6CI6</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel='stylesheet' href='style/style.css' />
+  </head>
+
+  <body class="editor-body">
+
+    <nav class="navbar navbar-expand-md fixed-top">
+      <a class="navbar-brand" href="#"><img src="assets/dinasour.svg"></img></a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a id="home_page" class="nav-link" href="index.html">首页</a></li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item"></li>
+
+        <li>
+          <a id="nav-login-button" class='login' href='#'>登录</a>
+        </li>
+
+        <li id="nav-user-info">
+          <div style="display: flex; flex-direction: row;">
+            <a href="personal.html"><img id="avatar" src="assets/avatar.jpg" /></a>
+            <div style="display: flex; flex-direction: column;">
+              <span id="user-id"></span>
+              <div class="user-tokens">
+                <object id="token-icon" data="assets/m.svg" type="image/svg+xml"></object>
+                <span id="tokens">33</span>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item"><a id="submit-post" class="submit" href="#">投稿</a></li>
+      </ul>
+    </nav>
+
+    <main class="container" role="main" style="margin-top:150px;">
+      <div>
+        <input class="create-post-title" placeholder="请输入标题（最多 50 个字）" type="text" />
+      </div>
+      <div>
+        <textarea class="create-post-content" placeholder="请输入正文" rows="100" />
+      </div>
+    </main>
+
+    <!--_script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="/index.js"></script>
+  </body>
+</html>
